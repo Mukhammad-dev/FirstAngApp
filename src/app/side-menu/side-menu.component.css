@@ -1,0 +1,13 @@
+.side-menu{
+      height: 100vh;
+      background: #646f75;
+      position: fixed;
+      float: left;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+      width: 270px;
+      transition: all .3s ease-in-out;
+      z-index: 200;
+    }
