@@ -315,6 +315,11 @@ export class EventService {
         }
     ]
 
+    saveEvent(eventDetails){
+        eventDetails.id = this.EVENTS[this.EVENTS.length - 1].id + 1
+        eventDetails.session = []
+        this.EVENTS.push(eventDetails)
+    }
     getEvent(eventId: number) {
         return this.EVENTS.find(event => event.id === eventId)
     }
@@ -326,5 +331,7 @@ export class EventService {
        return subject 
     }
 
-
+    updateEvent(event: any){
+        this.EVENTS[this.EVENTS.findIndex(x => x.id = event.id)] = event
+    }
 }

@@ -9,22 +9,60 @@ import { Router } from '@angular/router'
     `]
 })
 export class LoginComponent{
-    
+
     userName
     password
     mouseoverLogin
     constructor(private authService: AuthService, private router: Router){
 
     }
-    
-    login(formValues) {
-       this.authService.loginUser(formValues.userName, formValues.password)
-       this.router.navigate(['events'])
-    }
 
-    cancel()
-    {
+    login(formValues){
+        this.authService.loginUser(formValues.username, formValues.password)
         this.router.navigate(['events'])
     }
+
+    cancel(){
+        this.router.navigate(['events'])
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // userName
+    // password
+    // mouseoverLogin
+    // constructor(private authService: AuthService, private router: Router){
+
+    // }
+    
+    // login(formValues) {
+    //    this.authService.loginUser(formValues.userName, formValues.password)
+    //    this.router.navigate(['events'])
+    // }
+
+    // cancel()
+    // {
+    //     this.router.navigate(['events'])
+    // }
 
 }

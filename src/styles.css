@@ -20,6 +20,10 @@ button {
   display: none !important;
 }
 
+.thumbnail{ min-height: 210px; }
+.pad-left{ margin-left: 10px; }
+.well div { color: #bbb; }
+
 .toast-success {
   background-color: #51a351;
 }
