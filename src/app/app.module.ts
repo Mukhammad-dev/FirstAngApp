@@ -22,6 +22,9 @@ import { EventRouteActivator } from './events/event-details/event-details.servic
 import { AuthService } from './user/auth.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { DurationPipe } from './events/shared/duration.pipe'
+
 //import { ToastrService } from './common/toastr.service'
 
 
@@ -43,7 +46,9 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
     Error404Component,
     CreateEventComponent,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   providers: [
     EventService,

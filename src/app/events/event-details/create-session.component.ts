@@ -1,6 +1,5 @@
-import { Component, OnInit, Output} from '@angular/core'
+import { Component, OnInit, Output, EventEmitter} from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { EventEmitter, Session } from 'protractor'
 import { ISession } from '../shared/event.model'
 
 @Component({
@@ -17,7 +16,9 @@ import { ISession } from '../shared/event.model'
 })
 export class CreateSessionComponent implements OnInit {
 
-    //@Output() saveNewSession = new EventEmitter()
+    @Output() saveNewSession = new EventEmitter()
+    @Output() cancelAddSession = new EventEmitter()    
+
     newSessionForm: FormGroup
     name: FormControl
     presenter: FormControl
@@ -51,7 +52,10 @@ export class CreateSessionComponent implements OnInit {
             abstract: sessionFormValue.abstract,
             voters: []
         }
+        this.saveNewSession.emit(session)
+    }
 
-        //this.saveNewSession.emit(this.session)
+    cancel(){
+        this.cancelAddSession.emit()
     }
 }

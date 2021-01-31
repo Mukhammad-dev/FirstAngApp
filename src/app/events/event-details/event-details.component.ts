@@ -16,6 +16,8 @@ export class EventDetailsComponent {
     
     event: IEvent
     addMode: boolean
+    filterBy: string = 'all'
+    sortBy: string = ''
     constructor(private eventService: EventService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
@@ -31,6 +33,10 @@ export class EventDetailsComponent {
         session.id = nextId + 1
         this.event.sessions.push(session)
         this.eventService.updateEvent(this.event)
+        this.addMode = false
+    }
+
+    cancelAddSession(){
         this.addMode = false
     }
 }

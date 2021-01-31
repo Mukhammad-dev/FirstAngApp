@@ -1,7 +1,7 @@
 <h4>Event Details</h4>
 <div>
     <div>Event: {{event?.name}}</div>
-    <div>Date: {{event?.date}} </div>
+    <div>Date: {{event?.date | date: 'd/M/y' }} </div>
     <div>Time: {{event?.time}}</div>
     <div>
         <address>
@@ -23,12 +23,30 @@
         <h3 *ngIf="!addMode"style="margin:0">Sessions</h3>
         <h3 *ngIf="addMode" style="margin:0">Add Sessions</h3>
     </div>
+    <div class="btn-group btn-group-sm ">
+        <button class="btn btn-default" [class.active]="sortBy==='name'"
+            (click)="filterBy='name'">By Name</button>
+        <button class="btn btn-default" [class.active]="sortBy==='votes'"
+            (click)="sortBy='votes'">By votes</button>
+    </div>
+    <div class="col-md-7">
+        <div class="btn-group btn-group-sm ">
+            <button class="btn btn-default" [class.active]="filterBy==='all'"
+                (click)="filterBy='all'">All</button>
+            <button class="btn btn-default" [class.active]="filterBy==='Beginner'"
+                (click)="filterBy='Beginner'">Beginner</button>
+            <button class="btn btn-default" [class.active]="filterBy==='Intermediate'"
+                (click)="filterBy='Intermediate'">Intermediate</button>
+            <button class="btn btn-default" [class.active]="filterBy==='Advanced'"
+                (click)="filterBy='Advanced'">Advanced</button>
+        </div>
+    </div>
     <div class="col-md-2">
         <a *ngIf="addMode" (click)="addSession()">Sessions</a>
         <a *ngIf="!addMode" (click)="addSession()">Add Sessions</a>
     </div>
 </div>
 <div class="container">
-    <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
-    <create-session *ngIf="addMode" ></create-session>
+    <session-list *ngIf="!addMode" [sessions]="event?.sessions" [filterBy]="filterBy" [sortBy]="sortBy"></session-list>
+    <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></create-session>
 </div>
