@@ -1,3 +1,5 @@
 export * from './event-details.component'
 export * from './event-details.service'
 export * from './session-list.component'
+export * from './upvote.component'
+export * from './voter.service'
